@@ -1,0 +1,48 @@
+[CEStrings]
+InstallDir=%CE1%\rlSoft\rlToday
+AppName="rlToday"
+
+[Strings]
+CompanyName="rlSoft"
+reg_path = Software\Microsoft\Today\Items\rlToday
+
+[Version]
+Signature="$Chicago$"
+CESignature="$Windows CE$"
+Provider=%CompanyName%
+
+[SourceDisksNames]
+1=,"Application",,C:\Dokumente und Einstellungen\andre\Eigene Dateien\Projects\rlToday\ARMV4Rel
+2=,"Skin",,C:\Dokumente und Einstellungen\andre\Eigene Dateien\Projects\rlToday\ARMV4Rel\blue
+[SourceDisksFiles]
+rlToday.dll=1
+rlToday.ini=1
+blueclockface40.bmp=2
+blueclockface100.bmp=2
+ical.png=2
+skin.xml=2
+
+[Files.Application]
+rlToday.dll
+rlToday.ini
+
+[Files.Skin]
+blueclockface40.bmp
+blueclockface100.bmp
+ical.png
+skin.xml
+
+[DestinationDirs]
+Files.Application=,%InstallDir%
+Files.Skin=,%InstallDir%\blue
+
+[DefaultInstall]
+CopyFiles=Files.Application, Files.Skin
+AddReg = RegSettings
+
+[RegSettings]
+HKLM,%reg_path%,DLL,0x00000000,%InstallDir%\rlToday.dll
+HKLM,%reg_path%,Enabled,0x00010001,1 
+HKLM,%reg_path%,Options,0x00010001,1
+HKLM,%reg_path%,Type,0x00010001,4
+
