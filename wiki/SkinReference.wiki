@@ -1,7 +1,7 @@
 #summary The complete Skin Reference
 
 
-<code xml>
+{{{
 <?xml version="1.0" ?>
 
 <today height="100" width=" 50" refresh="100">
@@ -29,8 +29,7 @@
  <Text x="90" y="85" text="(c) by Andre Adrian" />
  
 </today>
-</code>
-
+}}}
 
 
 
