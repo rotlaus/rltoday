@@ -41,35 +41,35 @@ This Application starters work only with '.exe' files, not with '.lnk' files cre
 Custom icons are resized to size x size
 
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the application icon.||
 ||y ||Vertical position of the application icon.||
 ||appnumber ||The number of the application. Count starting 0, so appnumber="0" for the first application.||
 == Optional parameters ==
-^Value ^n in pixel, default is 64 ||
+||Value ||n in pixel, default is 64 ||
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
     <Application x="5" y="100" appnumber="0" size="100" />
-</code>
+}}}
 
 ==== AppName ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the timezone name. ||
 ||y ||Vertical position of the timezone name. ||
 ||appnumber ||The number of the application. Count starting 0, so appnumber="0" for the first application.||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||left, center or right ||
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
     <AppName x="27" y="172" appnumber="0" alignment="Center" color="RGB(230, 230, 230)">
         <Font size="7" font="Tahoma" /> 
     </AppName>
-</code>
+}}}
 
 
 
@@ -78,13 +78,13 @@ Custom icons are resized to size x size
 
 ==== Calendar ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the calendar.||
 ||y ||Vertical position of the calendar.||
 ||rasterx ||Width of a single day in the calendar. ||
 ||rastery ||Height of a single day in the calendar. ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||saturdaycolor||RGB(0, 0, 0) If not defined, color will be used. ||
 ||sundaycolor||RGB(0, 0, 0) If not defined, color will be used. ||
@@ -93,42 +93,42 @@ Custom icons are resized to size x size
 ||offset ||Month offset||
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
 <Calendar x="160" y="13" rasterx="10" rastery="8" color="RGB(255, 255, 255)" saturdaycolor="RGB(0, 0, 255)" sundaycolor="RGB(255, 0, 0)">
  <Font size="8" font="Tahoma" /> 
 </Calendar>
-</code>
+}}}
 
 
 
 ==== CalendarHeader ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the calendar header.||
 ||y ||Vertical position of the calendar header.||
 ||format ||Format of the calendar header string. See [[http://usenomics.com/]] for details. But use only the month and the year setting, all the others are undefined. ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||left, center or right ||
 ||offset ||Month offset, example: offset="-1" for the previous month ||
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
 <CalendarHeader x="195" y="5" format="MMMM yyyy" offset="-1" color="RGB(255, 255, 255)" Alignment="Center" />
-</code>
+}}}
 
 
 
 
 ==== DigitalClock ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the clock.||
 ||y ||Vertical position of the clock.||
 ||format ||Format of the clock string. See [[http://usenomics.com/]] for details. ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||timezone ||The number of the timezone used for this clock. Count starting 0, so timezone="0" for the first timezone.||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||Left,center,right||
@@ -139,41 +139,41 @@ Custom icons are resized to size x size
 
 ==== Date ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the date string.||
 ||y ||Vertical position of the date string.||
 ||format ||Format of the date string. See [[http://usenomics.com/]] for details. ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||left, center or right ||
 ||timezone ||The number of the timezone used for this clock. Count starting 0, so timezone="0" for the first timezone.||
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
       <Date x="130" y="23" format="d">
        <Font size="10" weight="bold" font="Tahoma" /> 
       </Date>
-</code>
+}}}
 
 ==== Image ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the image.||
 ||y ||Vertical position of the image.||
 ||source ||The filename of the image. ||
 == Optional parameters ==
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
 <Image x="62" y="9" source="\windows\clock.png" />
-</code>
+}}}
 
-<code xml>
+{{{
 <Image x="62" y="9" source="\windows\clock.png" >
  <OnClick File="\windows\clock.exe" />
 </Image>
-</code>
+}}}
 
 
 
@@ -185,34 +185,34 @@ Custom icons are resized to size x size
 when a registry key is not found by the application it will show xxx instead of the value.
 
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the timezone name. ||
 ||y ||Vertical position of the timezone name. ||
 ||key ||The complete path of the registry key. Use backslashes as path seperator. See example! ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||left, center or right ||
 ||unknown ||alternate text if the key is unknown. Replacement of the standard "xxx". **New in V0.1.22** ||
 == Optional subelements ==
 == Sample ==
-<code xml>
+{{{
     <Registry key="HKEY_CURRENT_USER\System\State\Phone\Missed Call Count" x="133" y="103" alignment="Center" color="RGB(230, 230, 230)" >
         <Font size="20" weight="bold" font="Tahoma" /> 
     </Registry>
-</code>
+}}}
 
 see also the [[http://usenomics.com/]] page for common registry keys
 
 
 ==== Text ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the text.||
 ||y ||Vertical position of the text.||
 ||text ||The text to be displayed. ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||left, center or right ||
 == Optional subelements ==
@@ -222,12 +222,12 @@ need more examples
 
 ==== TimeZoneName ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||x ||Horizontal position of the timezone name. ||
 ||y ||Vertical position of the timezone name. ||
 ||timezone ||The number of the timezone for which the Name should be shown. Count starting 0, so timezone="0" for the first timezone. ||
 == Optional parameters ==
-^Value ^Description^
+||Value ||Description||
 ||color ||RGB(0, 0, 0) ||
 ||alignment ||left, center or right ||
 == Optional subelements ==
@@ -239,26 +239,26 @@ need more examples
 
 ==== Font ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||font ||the name of the font ||
 ||weight ||bold ||
 ||size || the size of the Font ||
 == Sample ==
 ==== HourHand ====
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||show || true or false ||
 ||color || RGB(0, 0, 0) ||
 ||source || filename of the image to be used as hand ||
 == Sample ==
-<code xml>
+{{{
 <AnalogClock x="27" y="17" clockface="..\my5thSkinPictures\clock\clock_1.png">
  <OnClick File="\Windows\Clock.exe" />
  <Hourhand source="\mySkin\hour.png" /> 
         <Minutehand show="false" />
  <Secondhand show="false"/>
 </AnalogClock>
-</code>
+}}}
 For the case of using pictures for the HourHand, resize the hour picture to the same high as the picture for the analog clock.
 == Sample ==
 {{:rltoday:clock_1.png||}} {{:rltoday:hour.png||}} {{:rltoday:minute.png||}}
@@ -281,16 +281,16 @@ you can add as much as you want
 **The default actions are gone with this and have now to be set directly**
 New in Version 0.1.22
 == Parameters ==
-^Value ^Description^
+||Value ||Description||
 ||File ||The application which will be executed on click. Full path!||
 ||Command ||The optional parameters for the application ||
 == Sample ==
-<code xml>
+{{{
  <Date x="130" y="23" format="d">
   <OnClick File="\windows\wmplayer.exe" /> 
   <OnClick File="\windows\pword.exe" /> 
  </Date>
-</code>
+}}}
 
 == Multiple parameters with spaces ==
 
@@ -303,7 +303,7 @@ If you need to pass multiple parameters via command, some of which contain space
 
 ==== Date Format String ====
 
-^Value    ^Description^
+||Value    ||Description||
 ||d  ||Day of month as digits with no leading zero for single-digit days.||
 ||dd  ||Day of month as digits with leading zero for single-digit days.||
 ||ddd  ||Day of week as a three-letter abbreviation.||
@@ -318,7 +318,7 @@ If you need to pass multiple parameters via command, some of which contain space
 ||gg  ||Period/era string.||
 
 ==== Time Format String ====
-^Value    ^Description^
+||Value    ||Description||
 ||h  ||Hours with no leading zero for single-digit hours; 12-hour clock||
 ||hh  ||Hours with leading zero for single-digit hours; 12-hour clock||
 ||H  ||Hours with no leading zero for single-digit hours; 24-hour clock||
