@@ -1,0 +1,51 @@
+#summary One-sentence summary of this page.
+
+Please note that this is a work in progress, images will be added soon..
+====== Introduction ======
+
+rlToday is a multi purpose free plugin for the Today Screen of your Pocket PC, written by Andre Adrian. You can configure the software skin to your own taste by editing an XML skin file.
+
+You can add the following to your today screen:
+  * Analog and digital clocks, //(All clocks support different time zones)//
+  * Calendars
+  * Dates
+  * Images
+  * Text
+  * Registry values
+  * Applications.
+
+
+
+
+
+====== Installation / Upgrading ======
+
+
+==== Installation ====
+Get the latest version of the ZIP file from the [[http://usenomics.com/|rlToday]] site. Open the ZIP file and copy the enclosed rlToday.CAB file to your Pocket PC. Open the CAB file on the device and install into the desired storage area.\\ This HowTo assumes you'll install rlToday onto the device itself (preferred), not to the storage card or the device's Extended ROM. \\ 
+ATTENTION! The application will not work if it's installed on the device's memory card!!
+
+==== Upgrading ====
+If you are upgrading, please take a backup of your rlToday.ini file, by default located in \Program Files\rlToday\rlToday.ini before installing the new cab file, otherwise you will lose your timezone and application settings. 
+
+
+
+
+
+
+
+
+====== Settings and Skins ======
+
+==== Skin Basics ====
+
+All skins share one thing in common, a skin.xml file. The skin.xml file will always contain at least the following:
+
+<?xml version="1.0" ?>
+<today height="hhh" refresh="mmm">
+</today>
+
+Where hhh is the height of the area the skin should take up in pixels and mmm is the number of milliseconds between screen updates.  Between the <today></today> tags will be additional tags that position the various elements. Please refer to the [[skinreference|Skin Reference]] for a list of the possible entries.
+
+==== FAQ ====
+Why this programs does not work on motorola mpx200 with WM2003!
