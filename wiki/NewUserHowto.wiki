@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary How to install and your first skin
 
 Please note that this is a work in progress, images will be added soon..
 ====== Introduction ======
