@@ -1,0 +1,27 @@
+This is by no means complete. There are too many WM devices for this to be accurate for them all. Y = confirmed yes, N = confirmed no, blank = unconfirmed. Note that a confirmed no may be inaccurate due to third-party software or relience on optional hardware.
+
+Note the keys below may be shown with a space or line break between the top level, e.g. HKEY\_CURRENT\_USER and the first "\". This white space is there for the web page only and needs to be removed when used on the PDA.
+
+| Name | Key | Comment | WM2003 | WM5 | WM6 |
+|:-----|:----|:--------|:-------|:----|:----|
+| Appointments upcoming (Today plugin) |HKEY\_CURRENT\_USER \System\State\Appointments\HomeScreen\Subject | when not available defaults to "No upcoming appointments." |  |  | Y |
+| Appointments upcoming location (Today plugin) |HKEY\_CURRENT\_USER \System\State\Appointments\HomeScreen\Location |  |  |  |  |
+| Appointment - next (Today plugin) |HKEY\_CURRENT\_USER \System\State\Appointments\Next\Subject |  |  |  |  |
+| Appointment - next location (Today plugin) |HKEY\_CURRENT\_USER \System\State\Appointments\Next\Location |  |  |  |  |
+| Bluetooth Status |HKEY\_LOCAL\_MACHINE \System\State\Hardware\Bluetooth | 8 = Off\\ 9 = On(?No connections?)\\ 11 = Discoverable\\ 25 = ?Hands Free? 13 - Handsfree\\ Does anyone have a full list of these? Is there an A2DP one for example?\\ \\ I think this is bitwise too:\\ 1 = Power on\\ 2 = Searching\\ 4 = Not sure. Maybe headphones?\\ 8 = BT Exists (Seems always set)\\ 16 = Connected\\ |  | Y | Y |
+| E-mail unread | HKEY\_CURRENT\_USER\ System\State\Messages\TotalEmail\Unread\Count |  |  | Y | Y |
+| Last Incoming Call Name|HKEY\_LOCAL\_MACHINE \System\State\Phone\Last Incoming Caller Name |  |  |  | Y |
+| Last Incoming Call Number|HKEY\_LOCAL\_MACHINE \System\State\Phone\Last Incoming Caller Number |  |  |  | Y |
+| Missed Calls|HKEY\_CURRENT\_USER \System\State\Phone\Missed Call Count |  |  |  | Y |
+| Operator Name |HKEY\_LOCAL\_MACHINE \System\State\Phone\Current Operator Name |  |  |  | Y |
+| Signal Strength |HKEY\_LOCAL\_MACHINE \System\State\Phone\Signal Strength |  |  |  | Y |
+| SMS unread | HKEY\_CURRENT\_USER \System\State\Messages\sms\Unread\Count |  |  | Y | Y |
+| Tasks active |HKEY\_CURRENT\_USER \System\State\Tasks\Active |  |  | Y | Y |
+| Tasks due today| HKEY\_CURRENT\_USER \System\State\Tasks\Due Today |  |  | Y | Y |
+| Tasks high priority | HKEY\_CURRENT\_USER \System\State\Tasks\High Priority |  |  | Y | Y |
+| Tasks overdue |HKEY\_CURRENT\_USER \System\State\Tasks\Overdue |  |  | Y | Y |
+| Voice Mail|HKEY\_CURRENT\_USER \System\State\Messages\vmail\Total\Unread\Count|  |  |  | Y |
+| Wi-Fi connection status |HKEY\_LOCAL\_MACHINE \System\State\Connections\Network\Count | 0 = off\\ 1 = on |  | Y |  |
+| Wi-Fi power status |HKEY\_LOCAL\_MACHINE \System\State\Hardware\Wifi | coded bitwise\\ 1 = always set? WiFi hardware present?\\ 2 = powered on\\ 4 = networks available\\ 8 = connecting\\ 16 = connected\\ \\ Bit 4 (Networks Available) can be set when wifi is off. On inspection, this bit appears to mean that you have a configured wifi network. So if this bit is true, then enabling wifi will probably result in an internet connection (Depending on location of course) |  | Y | Y |
+
+Updates to BT and WiFi made ~Aug 2009 evilc@evilc.com

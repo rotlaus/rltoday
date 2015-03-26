@@ -1,0 +1,101 @@
+## Advanced Techniques ##
+
+### Layering ###
+
+#### FOXCATs LCD Clock ####
+
+FOXCAT has used the LiquidCR True Type font to great effect. You can find a link to the font file in his [[Thread.](http://usenomics.com/|Forum)] The technique uses the layering of text to create the appearance of an true LCD or LED clock. A number of "8"s are put down first as the "off" elements of the LCD. Then a digital clock or other live data is drawn over the top.
+
+{{rltoday:lcd-capture.png|}}
+
+```
+  <Image x="30" y="10" source="background.png" />
+  <Text text="88:88" x="120" y="15" alignment="Center" color="RGB(60,94,0)" >
+    <Font size="64" weight="normal" font="LiquidCrystal"/>
+  </Text>
+  <DigitalClock x="120" y="15" format="HH:mm" timezone= "0"
+  color="RGB(123,199,0)" Alignment="Center" >
+    <Font size="64" weight="normal" font="LiquidCrystal"/>
+  </DigitalClock>
+```
+
+An alternate font can be found here: [http://usenomics.com/|Transponder]
+
+#### Battery Status ####
+
+Inspired by Foxcat's layering, with a small change to the {{rltoday:sys-to-reg.mscr.20070409.txt|Sys-to-Reg}} MortScript we can have it write more Registry strings that can be used to draw power status graphics. In the image below the only change between the large and small power line is a change in font size. Both lines print the single Registry string 'Battery-Str'.
+
+{{rltoday:power-meter-2.png|}}
+
+With keys Battery-1 to Battery-10 reflecting each 10% of power, they can each be printed at any position, e.g. around a circle, square, etc. The font used in these examples is Fnt\_BasicShapes1 from http://www.dafont.com/
+
+The test skin used to create this can be found {{rltoday:power-status.skin.xml.txt|here}}.
+
+### Reading System Variables and Text Files ###
+
+If you need data that cannot be read directly from the Registry there is a utility called [http://usenomics.com/|MortScript] that is able to run scripts as a background process. It's able to open files and search for stings and also get a number of system variables such as battery state and free memory.
+
+The following script, started by a link added to \Windows\StartUp\, takes the battery level and free RAM values and copies them into the Registry every 10 seconds. The rlToday skin can then read the data with the standard 
+
+&lt;registry&gt;
+
+ tags. As the script runs as a never ending While loop that sleeps most of the time it's  CPU load is minimal.
+
+```
+  while (1)
+    mem=FreeMemory()/1024
+    bat=BatteryPercentage()
+    RegWriteString("HKCU","\Software\emerym\","Battery", &bat)
+    RegWriteString("HKCU","\Software\emerym\","Memory", &mem)
+    Sleep (10000)
+  EndWhile
+```
+
+There are a number of tools that allow the user to create and edit links, one is [[Commander/CE](http://usenomics.com/|Total)]. The shortcut \Windows\StartUp\Sys-to-Reg.lnk should have the properties:
+
+> "\
+
+&lt;path&gt;
+
+\MortScript\MortScript.exe" "\
+
+&lt;path&gt;
+
+\MortScript\Sys-to-Reg.mscr"
+
+Replace 
+
+&lt;path&gt;
+
+ with the directory you installed MortScript into. E.g. \Program Files\
+
+### Placing Text and Registry Values ###
+
+If you want to render some text so that it aligns like this:
+
+> Random length text : Value
+> Other Random length text : Longer Value
+
+Then use the same x= values in your text and registry tags, changing the alignment values. The text to the left is "right aligned" and visa versa, as per the following examples.
+
+```
+  <Text text="Signal:" x="145" y="60" alignment="Right" color="RGB(230,230,230)" >
+    <Font size="9" weight="bold" font="Tahoma" /> 
+  </Text>
+  <Registry key="HKEY_LOCAL_MACHINE\System\State\Phone\Signal Strength" x="145" y="60"
+    alignment="Left" color="RGB(230, 230, 230)" >
+    <Font size="9" weight="normal" font="Tahoma" /> 
+  </Registry>
+```
+
+### Getting rid of XXX for Missed Call count ###
+
+If you've got MortScript installed as per the above notes, make this line the very first line in your Sys-to-Reg.mscr.  It will ensure you have a registry entry with 0 on reset.
+
+> RegWriteDWord("HKCU","\System\State\Phone\","Missed Call Count", 0)
+
+Better still, upgrade to rlToday 1.22a and use the "unknown=" value as per the skin reference.
+
+## No scrollbar shown over rlToday ##
+
+When U use rlToday to replace the original WM 'Date' plug-in you maybe want to show it always on top and don't want scrollbar over rlToday. Use an WM registry editor and edit the following registry entry "HKLM\Software\Microsoft\Today\Items\rlToday\Type" to "5" (normally it's "4").
