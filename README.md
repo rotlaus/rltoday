@@ -1,4 +1,4 @@
-#rlToday
+# rlToday
 
 rlToday was a multi purpose plugin for the Today Screen of a Pocket PC.
 
